@@ -30,7 +30,7 @@ do
     filename=$(echo ${woffFile} | sed 's|\.woff||')
     newFilename="${filename}.otf"
     echo "Converting ${woffFile} to ${newFilename}"
-    ${CMD} ${WOFF_DIR}/${woffFile} ${OTF_DIR}/${woffFile}.otf
+    ${CMD} ${WOFF_DIR}/${woffFile} ${OTF_DIR}/${filename}.otf
 done
 
 echo
