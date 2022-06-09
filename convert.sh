@@ -1,36 +1,37 @@
 #!/bin/bash
 
-WOFF2OTF_DIR=woff2otf
-WOFF_DIR=woff
-OTF_DIR=otf
+REPO_URL=git@github.com:hanikesn/woff2otf.git
+TOOL_DIR=woff2otf
+SOURCE_DIR=woff
+OUTPUT_DIR=otf
 CMD=woff2otf/woff2otf.py
 
-if [ ! -d ${WOFF_DIR} ]; then
-    echo "Directory ${WOFF_DIR} does not exist"
+if [ ! -d ${SOURCE_DIR} ]; then
+    echo "Directory ${SOURCE_DIR} does not exist"
     exit 1
 fi
 
-mkdir -p ${OTF_DIR}
-
-if [ ! -d ${WOFF2OTF_DIR} ]; then
-    echo "Cloning OTF conversion tool to ${WOFF2OTF_DIR}"
-    git clone git@github.com:hanikesn/woff2otf.git
+if [ ! -d ${TOOL_DIR} ]; then
+    echo "Cloning OTF conversion tool to ${TOOL_DIR}"
+    git clone ${REPO_URL}
 else
-    echo "Updating OTF conversion tool in ${WOFF2OTF_DIR}"
-    cd ${WOFF2OTF_DIR}
+    echo "Updating OTF conversion tool in ${TOOL_DIR}"
+    cd ${TOOL_DIR}
     git pull
     cd - > /dev/null
 fi
 
 echo
 
-find ${WOFF_DIR} -type f -name "*.woff" -exec basename {} \; \
+mkdir -p ${OUTPUT_DIR}
+
+find ${SOURCE_DIR} -type f -name "*.woff" -exec basename {} \; \
     | while read woffFile
 do
     filename=$(echo ${woffFile} | sed 's|\.woff||')
     newFilename="${filename}.otf"
     echo "Converting ${woffFile} to ${newFilename}"
-    ${CMD} ${WOFF_DIR}/${woffFile} ${OTF_DIR}/${filename}.otf
+    ${CMD} ${SOURCE_DIR}/${woffFile} ${OUTPUT_DIR}/${filename}.otf
 done
 
 echo
