@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO_URL=git@github.com:hanikesn/woff2otf.git
-TOOL_DIR=woff2otf
+TOOL_DIR=tool-woff2otf
 SOURCE_DIR=woff
 OUTPUT_DIR=otf
 CMD=woff2otf/woff2otf.py
@@ -13,7 +13,7 @@ fi
 
 if [ ! -d ${TOOL_DIR} ]; then
     echo "Cloning OTF conversion tool to ${TOOL_DIR}"
-    git clone ${REPO_URL}
+    git clone ${REPO_URL} ${TOOL_DIR}
 else
     echo "Updating OTF conversion tool in ${TOOL_DIR}"
     cd ${TOOL_DIR}
