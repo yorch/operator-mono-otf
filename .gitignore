@@ -1,3 +1,4 @@
 otf/
+otf-with-ligatures/
 woff/
-woff2otf/
+tool-*/

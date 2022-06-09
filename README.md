@@ -16,10 +16,11 @@ This tool allows you to download the font Operator Mono and convert it to OTF.
 
 ## Ligatures
 
-To add ligatures to the downloaded fonts, the following tool can be used:
+To add ligatures to the OTF fonts that you've downloaded and converted:
 
-https://github.com/kiliman/operator-mono-lig/
+```sh
+./add-ligatures.sh
+```
 
-And for easier setup, the following Docker wrapper can be used instead:
-
-https://github.com/drod3763/kiliman-operator-mono-lig-docker
+Which uses the tool from this [repo](https://github.com/kiliman/operator-mono-lig) with
+this [Docker wrapper](https://github.com/drod3763/kiliman-operator-mono-lig-docker)
