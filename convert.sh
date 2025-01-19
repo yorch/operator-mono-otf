@@ -4,7 +4,7 @@ REPO_URL=git@github.com:hanikesn/woff2otf.git
 TOOL_DIR=tool-woff2otf
 SOURCE_DIR=woff
 OUTPUT_DIR=otf
-CMD=woff2otf/woff2otf.py
+CMD=tool-woff2otf/woff2otf.py
 
 if [ ! -d ${SOURCE_DIR} ]; then
     echo "Directory ${SOURCE_DIR} does not exist"
