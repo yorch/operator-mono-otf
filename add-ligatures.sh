@@ -4,7 +4,7 @@ REPO_URL=git@github.com:drod3763/kiliman-operator-mono-lig-docker.git
 TOOL_DIR=tool-ligatures
 SOURCE_DIR=otf
 OUTPUT_DIR=otf-with-ligatures
-CMD=woff2otf/woff2otf.py
+CMD=tool-woff2otf/woff2otf.py
 
 if [ ! -d ${SOURCE_DIR} ]; then
     echo "Directory ${SOURCE_DIR} does not exist"
